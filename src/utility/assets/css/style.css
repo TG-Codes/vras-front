@@ -1,0 +1,193 @@
+/* .ag-theme-alpine {
+  --ag-foreground-color: rgb(126, 46, 132);
+  --ag-background-color: rgb(249, 245, 227);
+  --ag-header-foreground-color: rgb(204, 245, 172);
+  --ag-header-background-color: rgb(209, 64, 129);
+  --ag-odd-row-background-color: rgb(0, 0, 0, 0.03);
+  --ag-header-column-resize-handle-color: rgb(126, 46, 132);
+
+  --ag-font-size: 17px;
+  --ag-font-family: monospace;
+} */
+
+/* .table-headerClass {
+  background-color: aqua;
+}
+.table-cell{
+  background-color: blueviolet;
+}
+.cellStyle{
+  color: red;
+} */
+
+
+/* Apply styles to all headers */
+/* .ag-header-container{
+  height: 500px;
+} */
+
+/*hello*/
+/* .ag-header-cell {
+  background-color: #ccc; 
+  transition: background-color 0.3s;
+}
+.ag-cell {
+  height: 50px;
+  background-color: #fff; 
+  transition: background-color 0.3s;
+} */
+/*hello end*/
+/* .ag-header-cell:hover {
+  background-color: #aaa; 
+} */
+
+/* Apply styles to all cells */
+/* .ag-cell:hover {
+  background-color: #aaa; 
+} */
+
+/* Apply styles to action column */
+/* .ag-cell {
+  text-align: center;
+  background: none;
+}
+
+.table-action-cell {
+  background: none;
+  display: flex;
+  justify-content: space-evenly;
+} */
+/* .toastify {
+  width: auto;
+  max-width: 100%;
+} */
+/*user image post*/
+
+.image-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .image-preview {
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid red;
+    display: inline-block;
+  }
+  
+  .preview-image {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    border-radius: 50%;
+  }
+  
+  .remove-image {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: red;
+    color: rgb(247, 247, 247);
+    cursor: pointer;
+    z-index: 1;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+  .change-image {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: red;
+    color: rgb(247, 247, 247);
+    cursor: pointer;
+    z-index: 1;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.accessibility-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1000;
+}
+.accessibility-popup button{
+  margin: 0 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.accessibility-icon {
+  width: 100px;
+  height: 100px;
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+
+.custom-datepicker .react-datepicker__portal {
+  z-index: 1050; /* Increase this value as needed */
+}
+
+/* .radio-container {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.radio-container input[type="radio"] {
+  display: none;
+}
+
+.custom-checkbox {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+}
+
+.custom-checkbox:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.radio-container input[type="radio"]:checked + .custom-checkbox:before {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.custom-checkbox:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 7px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+.radio-container input[type="radio"]:checked + .custom-checkbox:after {
+  opacity: 1;
+} */
