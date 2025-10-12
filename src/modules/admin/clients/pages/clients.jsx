@@ -73,13 +73,36 @@ const Clients = (props) => {
   const [columnDefs, setColumnDefs] = useState([
     { field: "name", minWidth: 150, maxWidth: 200 },
     {
-      headerName: "Status", minWidth: 100, maxWidth: 150,
-      valueGetter: (params) =>
-        params.data && params.data.isOnline !== undefined
-          ? params.data.isOnline === 0
-            ? "Offline"
-            : "Online"
-          : null,
+      headerName: "Online Status", 
+      minWidth: 140, 
+      maxWidth: 160,
+      cellRenderer: (params) => {
+        if (params.data && params.data.isOnline !== undefined) {
+          const isOnline = params.data.isOnline === 1;
+          return (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div 
+                style={{
+                  width: '10px',
+                  height: '10px',
+                  borderRadius: '50%',
+                  backgroundColor: isOnline ? '#28a745' : '#dc3545',
+                  display: 'inline-block',
+                  animation: 'pulse 2s infinite'
+                }}
+              />
+              <span style={{ 
+                color: isOnline ? '#28a745' : '#dc3545',
+                fontWeight: '500',
+                fontSize: '13px'
+              }}>
+                {isOnline ? 'Online' : 'Offline'}
+              </span>
+            </div>
+          );
+        }
+        return null;
+      },
     },
     { field: "email", minWidth: 300, maxWidth: 400 },
     // { field: "countryCode", minWidth: 150, maxWidth: 200 },
@@ -1620,6 +1643,24 @@ const Clients = (props) => {
   }, [startDate])
   return (
     <>
+      <style>
+        {`
+          @keyframes pulse {
+            0% {
+              opacity: 1;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 0.5;
+              transform: scale(1.2);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+        `}
+      </style>
       <div className="globaltable_holder">
         <div>
           <div className="table_modal_open">
