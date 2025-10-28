@@ -1,6 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const DebugInfo = () => {
+  const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    const handleError = (event) => {
+      setErrors(prev => [...prev, {
+        type: 'Error',
+        message: event.error?.message || 'Unknown error',
+        stack: event.error?.stack || 'No stack trace'
+      }]);
+    };
+
+    const handleUnhandledRejection = (event) => {
+      setErrors(prev => [...prev, {
+        type: 'Unhandled Promise Rejection',
+        message: event.reason?.message || 'Unknown rejection',
+        stack: event.reason?.stack || 'No stack trace'
+      }]);
+    };
+
+    window.addEventListener('error', handleError);
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+
+    return () => {
+      window.removeEventListener('error', handleError);
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+    };
+  }, []);
+
   return (
     <div style={{
       position: 'fixed',
@@ -11,7 +39,9 @@ const DebugInfo = () => {
       padding: '10px',
       fontSize: '12px',
       zIndex: 10000,
-      maxWidth: '400px',
+      maxWidth: '500px',
+      maxHeight: '80vh',
+      overflow: 'auto',
       fontFamily: 'monospace'
     }}>
       <div><strong>Vercel Debug Info:</strong></div>
@@ -22,6 +52,20 @@ const DebugInfo = () => {
       <div>Window: {typeof window !== 'undefined' ? 'Available' : 'Not Available'}</div>
       <div>Location: {typeof window !== 'undefined' ? window.location.href : 'N/A'}</div>
       <div>User Agent: {typeof window !== 'undefined' ? window.navigator.userAgent.substring(0, 50) + '...' : 'N/A'}</div>
+      <div>Document Ready: {typeof document !== 'undefined' ? document.readyState : 'N/A'}</div>
+      <div>Body Children: {typeof document !== 'undefined' ? document.body.children.length : 'N/A'}</div>
+      
+      {errors.length > 0 && (
+        <div>
+          <div><strong>Errors ({errors.length}):</strong></div>
+          {errors.map((error, index) => (
+            <div key={index} style={{ color: 'red', marginTop: '5px' }}>
+              <div>{error.type}: {error.message}</div>
+              <div style={{ fontSize: '10px', color: '#ccc' }}>{error.stack}</div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
