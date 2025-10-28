@@ -4,11 +4,5 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "env": {
-    "REACT_APP_BASE_URL": "https://vras-server.vercel.app/api",
-    "REACT_APP_IMAGE_URL": "https://vras-server.vercel.app",
-    "REACT_APP_FRONTEND_PROTOCOL": "https",
-    "REACT_APP_FRONTEND_DOMAIN": "vras-front.vercel.app"
-  }
+  ]
 }
