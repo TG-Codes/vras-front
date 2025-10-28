@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Select from 'react-select';
 import i18n from "./i18n";
+import DebugInfo from "./DebugInfo";
 
 const App = (props) => {
   const { loaderStateFalse } = props;
@@ -59,25 +60,28 @@ const App = (props) => {
     document.body.appendChild(script);
   }, [i18n.language]);
   return (
-    <LoadingOverlay active={isLoading} spinner text="Loading your content..." styles={{
-      overlay: (base) => ({
-        ...base,
-        zIndex: 9999,
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-      }),
-    }}>
-      <ToastContainer />
-      {/* <div className="language-dropdown">
-      <Select options={options} value={selectedLanguage} onChange={handleChange}/>
-      </div> */}
-      <HashRouter>
-        <Routes />
-      </HashRouter>
-    </LoadingOverlay>
+    <>
+      <DebugInfo />
+      <LoadingOverlay active={isLoading} spinner text="Loading your content..." styles={{
+        overlay: (base) => ({
+          ...base,
+          zIndex: 9999,
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+        }),
+      }}>
+        <ToastContainer />
+        {/* <div className="language-dropdown">
+        <Select options={options} value={selectedLanguage} onChange={handleChange}/>
+        </div> */}
+        <HashRouter>
+          <Routes />
+        </HashRouter>
+      </LoadingOverlay>
+    </>
   );
 };
 
