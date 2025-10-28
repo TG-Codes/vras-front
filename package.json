@@ -29,7 +29,6 @@
     "react-datepicker": "^6.6.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^9.0.10",
-    "react-loading-overlay": "^1.0.1",
     "react-loading-skeleton": "^3.4.0",
     "react-phone-input-2": "^2.15.1",
     "react-player": "^2.16.0",
@@ -52,7 +51,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "echo Skipping postinstall"
   },
   "eslintConfig": {
     "extends": [
